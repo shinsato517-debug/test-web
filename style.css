@@ -1,0 +1,113 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    overflow: hidden; /* スクロールバーを消す */
+}
+
+h1 {
+    color: #333;
+}
+
+#game-container {
+    position: relative;
+    width: 800px;
+    height: 300px;
+    border: 2px solid #333;
+    margin: 20px auto;
+    background-color: #87ceeb;
+    overflow: hidden;
+}
+
+#character {
+    position: absolute;
+    width: 50px;
+    height: 70px; /* キャラクターの身長を少し高く */
+    bottom: 0;
+    left: 50px;
+    /* 仮のキャラクターデザイン */
+    background-color: #ffb6c1; /* ピンク色 */
+    border-radius: 25px 25px 0 0; /* 頭を丸く */
+}
+
+/* キャラクターの目 */
+#character::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 5px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 25px 0 #333; /* もう片方の目 */
+}
+
+/* 自転車の本体 */
+#character::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* キャラクターの下に */
+    left: 5px;
+    width: 40px;
+    height: 20px;
+    background-color: #d3d3d3; /* グレー */
+    border-top: 5px solid #a9a9a9;
+}
+
+
+#obstacle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #a52a2a; /* 茶色 */
+    bottom: 0;
+    right: -30px; /* 画面外から登場 */
+}
+
+.jump {
+    animation: jump 0.5s linear;
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+    50% { bottom: 100px; }
+    100% { bottom: 0; }
+}
+
+#score-container {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+#game-over p {
+    font-size: 2em;
+    margin: 0 0 10px;
+    color: #d9534f;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
