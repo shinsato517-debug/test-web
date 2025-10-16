@@ -18,42 +18,624 @@ h1 {
     margin: 20px auto;
     background-color: #87ceeb;
     overflow: hidden;
+    background-image: linear-gradient(
+        90deg,
+        #87ceeb 0%,
+        #87ceeb 50%,
+        #a2d2ff 50%,
+        #a2d2ff 100%
+    );
+    background-size: 100px 100%;
+    animation: scroll-background 5s linear infinite;
+}
+
+#game-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #666;
+    border-top: 5px dashed #fff;
+}
+
+@keyframes run {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
 }
 
 #character {
+
     position: absolute;
+
     width: 50px;
-    height: 70px; /* キャラクターの身長を少し高く */
-    bottom: 0;
+
+    height: 60px; /* ウサギの体 */
+
+    bottom: 50px; /* 道路と自転車に合わせて調整 */
+
     left: 50px;
-    /* 仮のキャラクターデザイン */
-    background-color: #ffb6c1; /* ピンク色 */
-    border-radius: 25px 25px 0 0; /* 頭を丸く */
+
+    background-color: #fff;
+
+    border-radius: 50% 50% 30% 30%; /* ウサギの体型 */
+
+    animation: run 0.5s linear infinite;
+
+    z-index: 10;
+
 }
 
-/* キャラクターの目 */
-#character::before {
-    content: '';
+
+
+#bicycle {
+
     position: absolute;
-    top: 15px;
-    left: 10px;
-    width: 5px;
-    height: 5px;
+
+    width: 80px;
+
+    height: 50px;
+
+    bottom: 30px;
+
+    left: 30px;
+
+    background-color: transparent;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .wheel {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    width: 30px;
+
+
+
+
+
+
+
+    height: 30px;
+
+
+
+
+
+
+
     background-color: #333;
+
+
+
+
+
+
+
     border-radius: 50%;
-    box-shadow: 25px 0 #333; /* もう片方の目 */
+
+
+
+
+
+
+
+    bottom: 0;
+
+
+
+
+
+
+
 }
 
-/* 自転車の本体 */
-#character::after {
-    content: '';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .wheel.front {
+
+
+
+
+
+
+
+    left: 50px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .wheel.back {
+
+
+
+
+
+
+
+    left: 0px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .frame-main {
+
+
+
+
+
+
+
     position: absolute;
-    bottom: -10px; /* キャラクターの下に */
+
+
+
+
+
+
+
+    width: 70px;
+
+
+
+
+
+
+
+    height: 5px;
+
+
+
+
+
+
+
+    background-color: #666;
+
+
+
+
+
+
+
+    top: 20px;
+
+
+
+
+
+
+
     left: 5px;
-    width: 40px;
-    height: 20px;
-    background-color: #d3d3d3; /* グレー */
-    border-top: 5px solid #a9a9a9;
+
+
+
+
+
+
+
+    transform: rotate(-15deg);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .frame-seat {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    width: 30px;
+
+
+
+
+
+
+
+    height: 5px;
+
+
+
+
+
+
+
+    background-color: #666;
+
+
+
+
+
+
+
+    top: 10px;
+
+
+
+
+
+
+
+    left: 40px;
+
+
+
+
+
+
+
+    transform: rotate(30deg);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .frame-handle {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    width: 20px;
+
+
+
+
+
+
+
+    height: 5px;
+
+
+
+
+
+
+
+    background-color: #666;
+
+
+
+
+
+
+
+    top: 10px;
+
+
+
+
+
+
+
+    left: 60px;
+
+
+
+
+
+
+
+    transform: rotate(-45deg);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .saddle {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    width: 20px;
+
+
+
+
+
+
+
+    height: 10px;
+
+
+
+
+
+
+
+    background-color: #333;
+
+
+
+
+
+
+
+    border-radius: 5px;
+
+
+
+
+
+
+
+    top: 0px;
+
+
+
+
+
+
+
+    left: 45px;
+
+
+
+
+
+
+
+    transform: rotate(10deg);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bicycle .handlebar {
+
+
+
+
+
+
+
+    position: absolute;
+
+
+
+
+
+
+
+    width: 25px;
+
+
+
+
+
+
+
+    height: 5px;
+
+
+
+
+
+
+
+    background-color: #333;
+
+
+
+
+
+
+
+    border-radius: 5px;
+
+
+
+
+
+
+
+    top: 0px;
+
+
+
+
+
+
+
+    left: 65px;
+
+
+
+
+
+
+
+    transform: rotate(-20deg);
+
+
+
+
+
+
+
 }
 
 
@@ -74,6 +656,15 @@ h1 {
     0% { bottom: 0; }
     50% { bottom: 100px; }
     100% { bottom: 0; }
+}
+
+@keyframes scroll-background {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100px 0;
+    }
 }
 
 #score-container {
